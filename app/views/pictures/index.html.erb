@@ -1,0 +1,29 @@
+<br><br><br><br><br>
+<h1>Foto's voor <%= @project.title %></h1>
+
+<% if !@project.pictures.empty? %>
+
+<div id="projects">
+  <% @pictures.each do |picture| %>
+    <div class="box">
+      <%= link_to (image_tag picture.image(:medium)), [@project, picture] %>
+        <p><strong> Omschrijving </strong> <%= picture.title %></p>
+          <p>
+            <%= link_to 'Show', [@project, picture] %>
+            <%= link_to 'Edit', edit_project_picture_path(@project, picture) %>
+            <%= link_to 'Destroy', [@project, picture], :confirm => 'Are you sure?',
+            :method => :delete %>
+          </p>
+    </div>
+  <% end %>
+</div>
+
+<% else %>
+  <p>Dit project heeft nog geen foto's.</p>
+<% end %>
+
+<br>
+<p>
+  <%= link_to 'New picture', new_project_picture_path(@project) %> |
+  <%= link_to 'Back', @project %>
+</p>

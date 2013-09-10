@@ -1,0 +1,28 @@
+<br><br>
+<div class="section_header">
+
+<%= render 'layouts/showcase_projects' %><br>
+
+<h3>Overige projecten</h3>
+</div>
+
+<p> Hieronder vindt u enkele foto’s van projecten die wij in de afgelopen jaren gedaan hebben.</p>
+
+<div id="projects">
+  <% @projects.each do |project| %>
+    <div class="box">
+      <%= link_to (image_tag project.image(:medium)), project_pictures_path(project) %>
+        <p><strong> Titel </strong> <%= project.title %></p>
+        <p><strong> Plaats </strong><%= project.place %></p>
+        <p class="description"><%= project.description %></p>
+          <p>
+          <%= link_to 'Show', project_path(project) %>
+          <%= link_to 'Edit', edit_project_path(project) %>
+          <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'New picture', new_project_picture_path(project) %> 
+        </p>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to 'Voeg nieuw Project toe', new_project_path %>

@@ -1,0 +1,14 @@
+<%= simple_form_for(@project) do |f| %>
+  <%= f.error_notification %>
+  <%= f.full_error :image_file_size %>
+  <%= f.full_error :image_content_type %>
+
+  <%= f.input :image, label: 'Voeg afbeelding toe' %>
+  <%= f.input :title, label: 'Titel' %>
+  <%= f.input :place, label: 'Plaats' %>
+  <%= f.input :description, label: 'Omschrijving' %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

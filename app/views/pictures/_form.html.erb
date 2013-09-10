@@ -1,0 +1,19 @@
+<%= simple_form_for([@project, @picture]) do |f| %>
+  <%= f.error_notification %>
+  <%= f.full_error :image_file_size %>
+  <%= f.full_error :image_content_type %>
+
+  <% if @project %>
+    <p>Deze foto wordt toegevoegd aan: <%= @project.title %></p>
+    <input type="hidden" name="picture[project_id]" value="<%= @project.id %>" />
+  <% end %>
+
+  <div class="inputs">
+    <%= f.input :image, label: 'Voeg afbeelding toe' %>
+    <%= f.input :title, label: 'Voeg een omschrijving van de foto toe' %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
