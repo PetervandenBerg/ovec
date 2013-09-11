@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @project_groups = Project.all.in_groups_of(3, false)
   end
 
   # GET /projects/1

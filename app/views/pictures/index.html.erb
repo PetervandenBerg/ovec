@@ -1,21 +1,38 @@
 <br><br><br><br><br>
-<h1>Foto's voor <%= @project.title %></h1>
 
 <% if !@project.pictures.empty? %>
 
-<div id="projects">
-  <% @pictures.each do |picture| %>
-    <div class="box">
-      <%= link_to (image_tag picture.image(:medium)), [@project, picture] %>
-        <p><strong> Omschrijving </strong> <%= picture.title %></p>
-          <p>
-            <%= link_to 'Show', [@project, picture] %>
-            <%= link_to 'Edit', edit_project_picture_path(@project, picture) %>
-            <%= link_to 'Destroy', [@project, picture], :confirm => 'Are you sure?',
-            :method => :delete %>
-          </p>
+<div id="blog">
+  <div class="container">
+    <div class="section_header">
+      <h3>Foto's voor <%= @project.title %></h3>
     </div>
-  <% end %>
+    <% @picture_groups.each do |pictures| %>
+      <div class="row post_row">
+        <% pictures.each_with_index do |picture, i| %>
+          <div class="span4 post <%= check_for_last_class(i) %>">
+            <div class="img">
+              <%= link_to (image_tag picture.image(:medium)), [@project, picture] %>
+            </div>
+            <div class="text">
+              <p><strong> Omschrijving: </strong> <%= picture.title %></p>
+            </div>  
+            <div class="author_box">   
+              <p> 
+                <%= link_to 'Show', [@project, picture] %>
+                <%= link_to 'Edit', edit_project_picture_path(@project, picture) %>
+                <%= link_to 'Destroy', [@project, picture], :confirm => 'Are you sure?',
+                :method => :delete %>
+              </p>
+            </div>
+            <a class="plus_wrapper" href="#">
+              <span>+</span>
+            </a>
+          </div>  
+        <% end %>    
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <% else %>

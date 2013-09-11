@@ -5,7 +5,7 @@ class PicturesController < ApplicationController
   # GET /pictures
   # GET /pictures.json
   def index
-    @pictures = @project.pictures
+    @picture_groups = @project.pictures.in_groups_of(3, false)
   end
 
   # GET /pictures/1

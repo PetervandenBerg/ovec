@@ -1,28 +1,38 @@
 <br><br>
-<div class="section_header">
 
 <%= render 'layouts/showcase_projects' %><br>
 
-<h3>Overige projecten</h3>
-</div>
-
-<p> Hieronder vindt u enkele foto’s van projecten die wij in de afgelopen jaren gedaan hebben.</p>
-
-<div id="projects">
-  <% @projects.each do |project| %>
-    <div class="box">
-      <%= link_to (image_tag project.image(:medium)), project_pictures_path(project) %>
-        <p><strong> Titel </strong> <%= project.title %></p>
-        <p><strong> Plaats </strong><%= project.place %></p>
-        <p class="description"><%= project.description %></p>
-          <p>
-          <%= link_to 'Show', project_path(project) %>
-          <%= link_to 'Edit', edit_project_path(project) %>
-          <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
-          <%= link_to 'New picture', new_project_picture_path(project) %> 
-        </p>
+<div id="blog">
+  <div class="container">
+    <div class="section_header">
+      <h3>Overige projecten</h3>
     </div>
-  <% end %>
+    <% @project_groups.each do |projects| %>
+      <div class="row post_row">
+        <% projects.each_with_index do |project, i| %>
+          <div class="span4 post <%= check_for_last_class(i) %>">
+            <div class="img">            
+              <%= link_to (image_tag project.image(:medium)), project_pictures_path(project) %>
+            </div>
+            <div class="text">
+              <span class="date">Datum toegevoegd: <%= project.created_at.to_s(:short) %></span>
+              <p><strong> Titel </strong> <%= project.title %><br></p>
+              <p><strong> Plaats </strong><%= project.place %><br><br></p>
+              <p><%= project.description %></p>
+            </div>
+
+            <div class="author_box">  
+                <%= link_to 'Show', project_path(project) %>
+                <%= link_to 'Edit', edit_project_path(project) %>
+                <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <%= link_to 'New picture', new_project_picture_path(project) %> 
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <%= link_to 'Voeg nieuw Project toe', new_project_path %>
+
