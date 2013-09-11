@@ -12,6 +12,6 @@ Ovec::Application.routes.draw do
 
   root 'pages#home'
 
-  match 'contact' => 'contact#new', :as => 'contact', :via => :get
-
+	match 'contact' => 'contact#new', :via => :get
+	match 'contact' => 'contact#create', :via => :post
 end

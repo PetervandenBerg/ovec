@@ -1,0 +1,14 @@
+<br><br><br><br><br>
+<%= simple_form_for @message, :url => contact_path do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :name, label: 'Naam' %>
+  <%= f.input :email, label: 'Email' %>
+  <%= f.input :subject, label: 'Onderwerp' %>
+  <%= f.input :body, label: 'Omschrijving' %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

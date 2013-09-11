@@ -18,7 +18,7 @@
               <span class="date">Datum toegevoegd: <%= project.created_at.to_s(:short) %></span>
               <p><strong> Titel </strong> <%= project.title %><br></p>
               <p><strong> Plaats </strong><%= project.place %><br><br></p>
-              <p><%= project.description %></p>
+              <p><%= truncate(project.description, length: 130) %></p>
             </div>
 
             <div class="author_box">  
