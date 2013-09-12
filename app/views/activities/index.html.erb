@@ -1,7 +1,7 @@
 <br><br>
 <div class="section_header">
 
-<%= render 'layouts/showcase_activity' %><br>
+<%= render 'layouts/showcase_activity' %><br><br><br><br>
 
 <h3>Overige activiteiten</h3>
 </div>
@@ -9,8 +9,7 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
+      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -21,7 +20,6 @@
     <% @activities.each do |activity| %>
       <tr>
         <td><%= activity.name %></td>
-        <td><%= activity.description %></td>
         <% if admin_signed_in? %>
           <td><%= link_to 'Show', activity %></td>
           <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
