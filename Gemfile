@@ -5,9 +5,7 @@ gem 'rails', '4.0.0'
 gem 'devise'
 gem 'simple_form'
 gem 'paperclip', github: 'thoughtbot/paperclip', branch: 'rails-4'
-gem 'will_paginate'
-gem 'bootstrap-will_paginate'
-
+gem 'aws-sdk'
 # Use sqlite3 as the database for Active Record
 
 group :production do
