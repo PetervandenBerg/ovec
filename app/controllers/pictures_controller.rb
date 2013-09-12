@@ -1,7 +1,7 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
   before_action :get_project
-
+  before_filter :authenticate_admin!, except: [:index, :show]
   # GET /pictures
   # GET /pictures.json
   def index

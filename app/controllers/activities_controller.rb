@@ -1,5 +1,6 @@
 class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_admin!, except: [:index, :show]
 
   # GET /activities
   # GET /activities.json

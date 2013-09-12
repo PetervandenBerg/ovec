@@ -11,5 +11,7 @@
   <%= @activity.description %>
 </p>
 
-<%= link_to 'Edit', edit_activity_path(@activity) %> |
-<%= link_to 'Back', activities_path %>
+<% if admin_signed_in? %>
+	<%= link_to 'Edit', edit_activity_path(@activity) %> |
+	<%= link_to 'Back', activities_path %>
+<% end %>

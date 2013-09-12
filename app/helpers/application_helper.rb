@@ -11,4 +11,10 @@ module ApplicationHelper
 			return "transparent"
 		end
 	end
+
+	def extra_class_needed
+		if current_page?(contact_path)
+			return "extra_class"
+		end
+	end
 end

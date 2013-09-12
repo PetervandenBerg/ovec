@@ -18,6 +18,8 @@
   <%= @project.description %>
 </p>
 
-<%= link_to 'New picture', new_project_picture_path(@project) %> |
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<% if admin_signed_in? %>
+	<%= link_to 'New picture', new_project_picture_path(@project) %> |
+	<%= link_to 'Edit', edit_project_path(@project) %> |
+	<%= link_to 'Back', projects_path %>
+<% end %>

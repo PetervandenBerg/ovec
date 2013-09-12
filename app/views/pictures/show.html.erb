@@ -13,5 +13,7 @@
   <%= @picture.project_id %>
 </p>
 
-<%= link_to 'Edit', edit_project_picture_path(@project, @picture) %>
-<%= link_to 'Back', project_pictures_path(@project) %>
+<% if admin_signed_in? %>
+	<%= link_to 'Edit', edit_project_picture_path(@project, @picture) %>
+	<%= link_to 'Back', project_pictures_path(@project) %>
+<% end %>

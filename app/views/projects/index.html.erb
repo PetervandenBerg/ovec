@@ -20,13 +20,14 @@
               <p><strong> Plaats </strong><%= project.place %><br><br></p>
               <p><%= truncate(project.description, length: 130) %></p>
             </div>
-
-            <div class="author_box">  
-                <%= link_to 'Show', project_path(project) %>
-                <%= link_to 'Edit', edit_project_path(project) %>
-                <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
-                <%= link_to 'New picture', new_project_picture_path(project) %> 
-            </div>
+            <% if admin_signed_in? %>
+              <div class="author_box">  
+                  <%= link_to 'Show', project_path(project) %>
+                  <%= link_to 'Edit', edit_project_path(project) %>
+                  <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <%= link_to 'New picture', new_project_picture_path(project) %> 
+              </div>
+            <% end %>
           </div>
         <% end %>
       </div>
@@ -34,5 +35,7 @@
   </div>
 </div>
 
-<%= link_to 'Voeg nieuw Project toe', new_project_path %>
+<% if admin_signed_in? %>
+  <%= link_to 'Voeg nieuw Project toe', new_project_path %>
+<% end %>
 
