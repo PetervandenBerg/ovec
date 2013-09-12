@@ -53,9 +53,9 @@ Ovec::Application.configure do
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
-      :bucket => ENV['ovec'],
-      :access_key_id => ENV['AKIAIFMD243TDLJFWLZA'],
-      :secret_access_key => ENV['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']
+      :bucket => ENV['AWS_BUCKET'],
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
 end
