@@ -1,32 +1,33 @@
 <div class="container" id="contact">
   <div class="row contact">
-    <form>
-      <div class="section_header">
-        <h3>Contact</h3>
-      </div>
+    <div class="section_header">
+      <h3>Contact</h3>
+    </div>
 
-      <div class="row form">
-          <%= simple_form_for @message, :url => contact_path do |f| %>
-            <%= f.error_notification %>
-              <div class="span6 contact-box">
-                <%= f.input :name, label: '', placeholder: 'Naam', input_html: {class: "name"} %>
-                <%= f.input :email, label: '', placeholder: 'Email', input_html: {class: "mail", type: "text"} %>
-                <%= f.input :phone, label: '', placeholder: 'Telefoonnummer', input_html: {class: "phone", type: "text"} %>
-                <%= f.input :subject, label: '', placeholder: 'Onderwerp' %>
-              </div>
-              <div class="span6 contact-box box_r">
-                <%= f.input :body, label: '', placeholder: 'Bericht', as: :text %>
-              </div>
+    <h6> Vul onderstaand formulier in om met ons in contact te komen. </h6>
 
-              <div class="row submit">
-                <div class="span3 right">
-                  <%= f.submit %>
-                </div>
+    <div class="row form">
+        <%= simple_form_for @message, :url => contact_path, method: :post do |f| %>
+          <%= f.error_notification %>
+            <div class="span6 contact-box">
+              <%= f.input :name, label: '', placeholder: 'Naam', input_html: {class: "name"} %>
+              <%= f.input :email, label: '', placeholder: 'Email', input_html: {class: "mail", type: "text"} %>
+              <%= f.input :phone, label: '', placeholder: 'Telefoonnummer', input_html: {class: "phone", type: "text"} %>
+              <%= f.input :subject, label: '', placeholder: 'Onderwerp' %>
+              <%= f.input :attachment, label: 'Bijlage(s), Meerdere bestanden in ZIP', as: :file %>
+            </div>
+            <div class="span6 contact-box box_r">
+              <%= f.input :body, label: '', placeholder: 'Bericht', as: :text %>
+            </div>
+
+            <div class="row submit">
+              <div class="span3 right">
+                <%= f.submit %>
               </div>
-          <% end %>
-        </div>
+            </div>
+        <% end %>
       </div>
-    </form>
+    </div>
   </div>    
 </div>
 

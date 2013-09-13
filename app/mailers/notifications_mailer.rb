@@ -5,6 +5,9 @@ class NotificationsMailer < ActionMailer::Base
 
   def new_message(message)
     @message = message
+    if message.attachment.present?
+    	attachments[message.attachment.original_filename] = File.open(message.attachment.path, 'rb'){|f| f.read}
+    end
     mail(:subject => "[Ovec_multiservice] #{message.subject}")
   end
 
