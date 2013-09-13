@@ -11,9 +11,10 @@
           <%= f.error_notification %>
             <div class="span6 contact-box">
               <%= f.input :name, label: '', placeholder: 'Naam', input_html: {class: "name"} %>
+              <%= f.input :company, label: '', placeholder: 'Bedrijf waar u voor werkt', input_html: {class: "name"} %>
               <%= f.input :email, label: '', placeholder: 'Email', input_html: {class: "mail", type: "text"} %>
               <%= f.input :phone, label: '', placeholder: 'Telefoonnummer', input_html: {class: "phone", type: "text"} %>
-              <%= f.input :subject, label: '', placeholder: 'Onderwerp' %>
+              <%= f.input :subject, label: '', placeholder: 'Onderwerp', input_html: {class: "mail", type: "text"} %>
               <%= f.input :attachment, label: 'Bijlage(s), Meerdere bestanden in ZIP', as: :file %>
             </div>
             <div class="span6 contact-box box_r">
